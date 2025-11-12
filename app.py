@@ -28,3 +28,13 @@ def home():
 @app.route('/pagina')
 def pagina():
     return render_template('pagina.html'), 200
+
+@app.route('/buscar/<item>')
+def buscar(item):
+    itens = ['julia', 'marcos', 'ana', 'pedro', 'laura']
+    item = item.lower()
+
+    if item in itens:
+        return f"'{item.capitalize()}' foi encontrado na lista!"
+    else:
+        return f"'{item.capitalize()}' não foi encontrado."
